@@ -1,6 +1,7 @@
 package com.vehicule.manage.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,13 @@ public class CountryService {
 	
 //	save a new country
 	public void save(Country country) {
-	
+		
 		countryRepository.save(country);
+	}
+	
+    //	find country by id
+	public Optional<Country> findById(int id) {
+		return countryRepository.findById(id); 
 	}
 
 }

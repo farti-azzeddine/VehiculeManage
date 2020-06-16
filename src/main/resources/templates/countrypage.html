@@ -1,5 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
@@ -438,11 +437,11 @@
 							<td th:text="${coun.continent}"></td>
 							<td th:text="${coun.description}"></td>
 							<td th:text="${coun.nationality}"></td>
-<!-- 							<td> -->
-<!-- 							  <div class="btn-group"> -->
-<!--                                  <a class="btn btn-primary" id="editModal">Edit</i></a>            -->
-<!--                               </div> -->
-<!--                            </td> -->
+							<td>
+							  <div class="btn-group">
+                                 <a th:href="@{/countries/finByid/(id=${coun.id})}" type="button" class="btn btn-primary" id="editButton">Edit</a>           
+                              </div>
+                           </td>
 <!--                            <td> -->
 <!--                              <div class="btn-group"> -->
 <!--                                 <a class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a> -->
@@ -481,8 +480,8 @@
         </button>
       </div>
       <div class="modal-body">
-<!--        <form th:action="@{/addNew}" method="post"> -->
-       <form action="/addNew" method="post">
+       <form th:action="@{/addNew}" method="post">
+<!--         <form action="/addNew" method="post"> -->
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Capital:</label>
             <input type="text" class="form-control" id="recipient-name" name="capital">
@@ -523,60 +522,63 @@
 
 <!-- start model updat -->
 
-<!-- <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
-<!--   <div class="modal-dialog" role="document"> -->
-<!--     <div class="modal-content"> -->
-<!--       <div class="modal-header"> -->
-<!--         <h5 class="modal-title" id="exampleModalLabel">Update Country</h5> -->
-<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
-<!--           <span aria-hidden="true">&times;</span> -->
-<!--         </button> -->
-<!--       </div> -->
-<!--       <div class="modal-body"> -->
-<!--        <form> -->
-<!--           <div class="form-group"> -->
-<!--             <label for="recipient-name" class="col-form-label">Capital:</label> -->
-<!--             <input type="text" class="form-control" id="capitalEdit" name="capital"> -->
-<!--           </div> -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Country</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form th:action="@{/countries/update}" method="put">
+       <div class="form-group">
+            <label for="recipient-name" class="col-form-label">ID:</label>
+            <input type="text" class="form-control" id="idEdit" name="description" readonly>
+          </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Capital:</label>
+            <input type="text" class="form-control" id="capitalEdit" name="capital">
+          </div>
           
-<!--           <div class="form-group"> -->
-<!--             <label for="recipient-name" class="col-form-label">Code:</label> -->
-<!--             <input type="text" class="form-control" id="codeEdit" name="code"> -->
-<!--           </div> -->
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Code:</label>
+            <input type="text" class="form-control" id="codeEdit" name="code">
+          </div>
           
-<!--           <div class="form-group"> -->
-<!--             <label for="recipient-name" class="col-form-label">Continent:</label> -->
-<!--             <input type="text" class="form-control" id="continentEdit" name="continent"> -->
-<!--           </div> -->
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Continent:</label>
+            <input type="text" class="form-control" id="continentEdit" name="continent">
+          </div>
           
-<!--           <div class="form-group"> -->
-<!--             <label for="recipient-name" class="col-form-label">Description:</label> -->
-<!--             <input type="text" class="form-control" id="descriptionEdit" name="description"> -->
-<!--           </div> -->
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Description:</label>
+            <input type="text" class="form-control" id="descriptionEdit" name="description">
+          </div>
           
-<!--           <div class="form-group"> -->
-<!--             <label for="recipient-name" class="col-form-label">Nationality:</label> -->
-<!--             <input type="text" class="form-control" id="nationalityEdit" name="nationality"> -->
-<!--           </div> -->
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Nationality:</label>
+            <input type="text" class="form-control" id="nationalityEdit" name="nationality">
+          </div>
           
-<!--           <div class="form-group"> -->
-<!--               <button type="submit" class="btn btn-primary">Submit</button> -->
-<!--           </div> -->
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary">Confirm</button>
+          </div>
           
-<!--         </form> -->
-<!--       </div> -->
-<!--       <div class="modal-footer"> -->
-<!--         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--   </div> -->
-<!-- </div> -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- end model update -->
   
   
   <!-- javascripts -->
   
-  <script src="js/countryJS.js"></script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nice scroll -->
@@ -584,6 +586,7 @@
   <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
+  <script type="text/javascript" src="js/countrypage.js"></script>
 
 
 </body>
