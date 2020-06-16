@@ -19,12 +19,12 @@ public class CountryController {
 	@GetMapping("/countries")
 	public String GetCountries(Model model) {
 		List<Country> countryList = countryService.getCountries();
-		model.addAttribute("countries", countryList);
-		return "Country";
+		model.addAttribute("countriesList", countryList);
+		return "country";
 	}
 	
-	@PostMapping("countries/addNew")
-    public String addNewCountries(Country country) {
+	@PostMapping("/addNew")
+    public String addNewCountries(Country country){
 	countryService.save(country);
 	return "redirect:/countries";
      }
