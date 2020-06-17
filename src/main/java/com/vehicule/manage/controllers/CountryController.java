@@ -41,8 +41,14 @@ public class CountryController {
 	}
 	
 	@RequestMapping(value = "/countries/update" , method = {RequestMethod.PUT , RequestMethod.GET})
-	public String update(Country country){
+	public String updatecountry(Country country){
 		countryService.save(country);
+		return "redirect:/countries";
+	     }
+	
+	@RequestMapping(value = "/countries/delete" , method = {RequestMethod.DELETE , RequestMethod.GET})
+	public String deletecountry(int id){
+		countryService.delete(id);
 		return "redirect:/countries";
 	     }
 }

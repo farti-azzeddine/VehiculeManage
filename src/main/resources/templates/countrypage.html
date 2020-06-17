@@ -439,14 +439,14 @@
 							<td th:text="${coun.nationality}"></td>
 							<td>
 							  <div class="btn-group">
-                                 <a th:href="@{/countries/finByid/(id=${coun.id})}" type="button" class="btn btn-primary" id="editButton">Edit</a>           
+                                 <a th:href="@{/countries/finByid/(id=${coun.id})}" type="button" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>           
                               </div>
                            </td>
-<!--                            <td> -->
-<!--                              <div class="btn-group"> -->
-<!--                                 <a class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a> -->
-<!--                              </div> -->
-<!--                            </td> -->
+                           <td>
+                             <div class="btn-group">
+                                <a th:href="@{/countries/delete/(id=${coun.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+                             </div>
+                         </td>
 							
 						</tr>
 					</tbody>
@@ -492,10 +492,10 @@
             <input type="text" class="form-control" id="recipient-name" name="code">
           </div>
           
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Continent:</label>
-            <input type="text" class="form-control" id="recipient-name" name="continent">
-          </div>
+<!--           <div class="form-group"> -->
+<!--             <label for="recipient-name" class="col-form-label">Continent:</label> -->
+<!--             <input type="text" class="form-control" id="recipient-name" name="continent"> -->
+<!--           </div> -->
           
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Description:</label>
@@ -505,6 +505,17 @@
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Nationality:</label>
             <input type="text" class="form-control" id="recipient-name" name="nationality">
+          </div>
+          <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Continent:</label>
+          <select class="custom-select" id="recipient-name" name="continent">
+                <option selected>Open this select menu</option>
+                <option value="Africa" >Africa</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="	North America">	North America</option>
+                <option value="	South America">	South America</option>
+          </select>
           </div>
           
           <div class="form-group">
@@ -535,7 +546,7 @@
        <form th:action="@{/countries/update}" method="put">
        <div class="form-group">
             <label for="recipient-name" class="col-form-label">ID:</label>
-            <input type="text" class="form-control" id="idEdit" name="description" readonly>
+            <input type="text" class="form-control" id="idEdit" name="id" readonly>
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Capital:</label>
@@ -575,7 +586,30 @@
   </div>
 </div>
 <!-- end model update -->
-  
+
+<!--   start modal delete -->
+
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete Country</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this Country ?!</p>
+      </div>
+      <div class="modal-footer">
+      <a class="btn btn-danger" id="confirmDeleteButton" href="">Yes, Delete</a>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--   end modal delete -->
   
   <!-- javascripts -->
   
