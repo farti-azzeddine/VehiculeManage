@@ -41,8 +41,7 @@ public class SupplierController {
 	@ResponseBody
 	
 	public Optional<Supplier> findbyid(int id) {
-		
-		
+				
 		return supplierService.findById(id);
 	}
 	
