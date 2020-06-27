@@ -434,8 +434,8 @@
                   </tr>
 				 <tr th:each="vehicleMaintenance:${vehicleMaintenancesList}">
 					<td th:text="${vehicleMaintenance.id}">Id</td>
-					<td th:text="${vehicleMaintenance.vehicle.name}">Vehicle</td>					
-					<td th:text="${vehicleMaintenance.startDate}">Start Date</td>
+					<td th:text="${vehicleMaintenance.vehicle.name}"> Vehicle</td>					
+					<td th:text="${vehicleMaintenance.startDate}"> Start Date</td>
 					<td th:text="${vehicleMaintenance.remarks}">Remarks</td>				
                     <td>
                       <div class="btn-group">
@@ -494,7 +494,7 @@
 			       <option>-SELECT-</option>			    
 			       <option th:each="vehicle : ${vehicleList}"
 				        th:value="${vehicle.id}"
-				        th:text="${vehicle.description}">
+				        th:text="${vehicle.name}">
 				   </option>
 			    </select>				    
 		  </div>
@@ -565,7 +565,7 @@
 			       <option>-SELECT-</option>			    
 			       <option th:each="vehicle : ${vehicleList}"
 				        th:value="${vehicle.id}"
-				        th:text="${vehicle.description}">
+				        th:text="${vehicle.name}">
 				   </option>
 			    </select>				    
 		  </div>
@@ -698,8 +698,8 @@
         <p>Are you sure you want to delete this record?</p>
       </div>
       <div class="modal-footer">
-        <a href="" class="btn btn-primary" id="confirmDeleteButton">Yes, Delete</a>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="" class="btn btn-danger" id="confirmDeletevehiclemaintenanceButton">Yes, Delete</a>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

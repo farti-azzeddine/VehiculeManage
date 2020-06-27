@@ -429,18 +429,24 @@
               <table class="table table-striped table-advance table-hover">
                 <tbody>
                   <tr>
-                    <th></th>
-                    <th><i class="icon_profile"></i> Id</th>                  
+                   
+                    <th><i class="icon_profile"></i> Id</th> 
+                     <th>Photo</th>                 
                     <th><i class="icon_profile"></i> Name</th>
                     <th><i class="icon_calendar"></i> Description</th>
-                    <th><i class="icon_mail_alt"></i> Acquisition Date</th>
+                    <th><i class="icon_mail_alt"></i> Employee</th>
                     <th><i class="icon_cogs"></i> Action</th>
                   </tr>
 				 <tr th:each="vehicle:${vehiclesList}">
 					<td th:text="${vehicle.id}">Id</td>
+					<td>
+                          <a id="photoButton" th:href="@{'/img/car/{idd}'(idd=${vehicle.photo})}">
+						  <img th:src="@{'/img/car/{idd}'(idd=${vehicle.photo})}" width="40" height="40"/>
+						 </a>
+					 </td>
 					<td th:text="${vehicle.name}">Name</td>
 					<td th:text="${vehicle.description}">Description</td>
-					<td th:text="${vehicle.acquisitionDate}">Acquisition Date</td>				
+					<td th:text="${vehicle.inCharge.firstname}">Acquisition Date</td>				
                     <td>
                       <div class="btn-group">
                         <a class="btn btn-primary" id="editvehicleButton" th:href="@{/vehicles/findByid/(id=${vehicle.id})}"><i class="icon_pencil-edit"></i></a>
@@ -598,7 +604,7 @@
 				    <label for="ddlEmployeeAdd" class="col-sm-4 col-form-label">In Charge Employee</label>
 				    <div class="col-sm-6">
 					    <select class="form-control" id="ddlEmployeeAdd" name="employeeid">
-		        	       <option disabled>-SELECT-</option>			    					  					    
+		        	       <option>-SELECT-</option>			    					  					    
 					       <option th:each="employee : ${employeesList}"
 						        th:value="${employee.id}"
 						        th:text="${employee.firstname}">
@@ -724,6 +730,9 @@
 					    </select>				    
 				    </div>
 				  </div>
+				  
+				</td>
+				<td width="50%" style="padding-left:10px">
 				  <div class="form-group row">
 				    <label for="ddlLocationEdit" class="col-sm-4 col-form-label">Current Location</label>
 				    <div class="col-sm-6">
@@ -735,11 +744,6 @@
 						   </option>				    
 						</select>
 					</div>
-				  </div>
-				</td>
-				<td width="50%" style="padding-left:10px">
-				  <div class="form-group row">
-
 				  </div>
 				  <div class="form-group row">
 				    <label for="txtPowerEdit" class="col-sm-4 col-form-label">Power: </label>
@@ -769,7 +773,7 @@
 				    <label for="ddlEmployeeEdit" class="col-sm-4 col-form-label">In Charge(Employee)</label>
 				    <div class="col-sm-6">
 					    <select class="form-control" id="ddlEmployeeEdit" name="employeeid">
-		        	       <option disabled>-SELECT-</option>			    					  					    
+		        	       <option >-SELECT-</option>			    					  					    
 					       <option th:each="employee : ${employeesList}"
 						        th:value="${employee.id}"
 						        th:text="${employee.firstname}">
@@ -798,7 +802,7 @@
 				</td>
 			</tr>
 		</table>
-		  <button type="submit" class="btn btn-primary">OK</button>
+<!-- 		  <button type="submit" class="btn btn-primary">OK</button> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -830,6 +834,30 @@
 </div> 
 
 <!-- end delete modal -->
+
+
+<!-- modal photo -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="photoModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Photo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      		<img id="vehiclePhoto" src="" width="95%" height="95%">
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
   
   
   

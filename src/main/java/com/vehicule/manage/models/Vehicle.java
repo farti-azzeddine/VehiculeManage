@@ -75,6 +75,8 @@ public class Vehicle {
 	private Integer locationid;
 	
 	private String remarks;
+	private String photo;
+	
 
 	public int getId() {
 		return id;
@@ -250,6 +252,14 @@ public class Vehicle {
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}	
 	
 	
