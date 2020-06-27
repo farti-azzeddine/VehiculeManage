@@ -28,7 +28,7 @@ public class VehicleController {
 	@Autowired VehicleMakeService vehicleMakeService;
 	@Autowired VehicleStatutService vehicleStatusService;
 	@Autowired VehicleTypeService vehicleTypeService;
-	VehicleModelService vehicleModelService;
+	@Autowired VehicleModelService vehicleModelService;
 	@Autowired EmployeeService employeeService;
 	
 	
