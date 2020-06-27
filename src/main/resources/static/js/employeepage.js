@@ -4,30 +4,30 @@ $('document').ready(function(){
 		
 		var href = $(this).attr('href');
 		
-		$.get(href, function(employee, status){
-			$('#txtAddressEdit').val(employee.address);
-			$('#txtCityEdit').val(employee.city);
-			$('#ddlNationalityEdit').val(employee.countryid);			
-			var dob = employee.dateOfBirth.substr(0,10);
+		$.get(href, function(empl, status){
+			$('#txtIdEdit').val(empl.id);
+			$('#txtAddressEdit').val(empl.address);
+			$('#txtCityEdit').val(empl.city);
+			$('#ddlNationalityEdit').val(empl.countryid);			
+			var dob = empl.dateOfBirth.substr(0,10);
 			$('#txtDateOfBirthEdit').val(dob);
-			$('#txtEmailEdit').val(employee.email);
-			$('#txtFirstnameEdit').val(employee.firstname);
-			$('#ddlGenderEdit').val(employee.gender);
-			$('#txtIdEdit').val(employee.id);
-			$('#txtInitialsEdit').val(employee.initials);
-			$('#txtLastnameEdit').val(employee.lastname);
-			$('#ddlMaritalStatusEdit').val(employee.maritalStatus);
-			$('#txtMobileEdit').val(employee.mobile);
-			$('#txtOthernameEdit').val(employee.othername);		
-			$('#txtPhoneEdit').val(employee.phone);			
-			$('#fupPhotoEdit').val(employee.photo);			
-			$('#txtSSNEdit').val(employee.socialSecurityNumber);			
-			$('#ddlStateEdit').val(employee.stateid);	
-			$('#ddlTitleEdit').val(employee.title);			
-			$('#ddlEmployeeTypeEdit').val(employee.employeetypeid);				
-			var hireDate = employee.hireDate.substr(0,10);
+			$('#txtEmailEdit').val(empl.email);
+			$('#txtFirstnameEdit').val(empl.firstname);
+			$('#ddlGenderEdit').val(empl.gender);
+			$('#txtInitialsEdit').val(empl.initials);
+			$('#txtLastnameEdit').val(empl.lastname);
+			$('#ddlMaritalStatusEdit').val(empl.maritalStatus);
+			$('#txtMobileEdit').val(empl.mobile);
+			$('#txtOthernameEdit').val(empl.othername);		
+			$('#txtPhoneEdit').val(empl.phone);			
+			$('#fupPhotoEdit').val(empl.photo);			
+			$('#txtSSNEdit').val(empl.socialSecurityNumber);			
+			$('#ddlStateEdit').val(empl.stateid);	
+			$('#ddlTitleEdit').val(empl.title);			
+			$('#ddlEmployeeTypeEdit').val(empl.employeetypeid);				
+			var hireDate = empl.hireDate.substr(0,10);
 			$('#txtHireDateEdit').val(hireDate);
-			$('#ddlJobTitleEdit').val(employee.jobtitleid);	
+			$('#ddlJobTitleEdit').val(empl.jobtitleid);	
 			
 		});
 		$('#editemployeeModal').modal();
@@ -37,12 +37,12 @@ $('document').ready(function(){
 		
 		var href = $(this).attr('href');
 		
-		$.get(href, function(employee, status){
-			$('#idDetails').val(employee.id);
-			$('#descriptionDetails').val(employee.description);
-			$('#detailsDetails').val(employee.details);
-			$('#lastModifiedByDetails').val(employee.lastModifiedBy);
-			$('#lastModifiedDateDetails').val(employee.lastModifiedDate.substr(0,19).replace("T", " "));
+		$.get(href, function(empl, status){
+			$('#idDetails').val(empl.id);
+			$('#descriptionDetails').val(empl.description);
+			$('#detailsDetails').val(empl.details);
+			$('#lastModifiedByDetails').val(empl.lastModifiedBy);
+			$('#lastModifiedDateDetails').val(empl.lastModifiedDate.substr(0,19).replace("T", " "));
 	});
 		$('#detailsemployeeModal').modal();
 	});
