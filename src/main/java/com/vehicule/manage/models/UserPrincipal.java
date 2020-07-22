@@ -15,7 +15,7 @@ public class UserPrincipal implements UserDetails {
 	public UserPrincipal(User user) {
 		this.user = user;
 	}
-
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
@@ -58,4 +58,7 @@ public class UserPrincipal implements UserDetails {
 		return true;
 	}
 
+//	public String getPhoto() {
+//	return user.getPhoto();
+//}
 }

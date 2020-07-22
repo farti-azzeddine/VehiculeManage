@@ -21,10 +21,11 @@ $('document').ready(function(){
 			$('#idDetails').val(vmodel.id);
 			$('#descriptionDetails').val(vmodel.description);
 			$('#detailsDetails').val(vmodel.details);
-			$('#addressDetails').val(vmodel.address);
+			$('#createdByDetails').val(vmodel.createdBy);
+			$('#createdDateDetails').val(vmodel.createdDate.substr(0,19).replace("T", " "));
 			$('#lastModifiedByDetails').val(vmodel.lastModifiedBy);
-			//$('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
-			
+			$('#lastModifiedDateDetails').val(vmodel.lastModifiedDate.substr(0,19).replace("T", " "));
+	
 		});
 		$('#detailsvehiclemodelModal').modal();
 	});
