@@ -23,4 +23,10 @@ public class ApplicationController {
 	public String logout() {
 		return "login";
 	}
+	
+	@GetMapping("/register")
+	public String register() {
+		System.out.println("jjjjjjjj");
+		return "register";
+	}
 }
