@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
@@ -23,8 +24,7 @@ public class ConfigureSecurity extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	
-//		.antMatchers("/register", "/resources/**", "/css/**", "/fonts/**", "/img/**", "/js/**").permitAll()
-//		.antMatchers("/users/addNew").permitAll()
+
 		
 		http
 		.csrf().disable()
@@ -48,6 +48,13 @@ public class ConfigureSecurity extends WebSecurityConfigurerAdapter{
 		  return NoOpPasswordEncoder.getInstance();
 		 
 	}
+	
+	@Bean
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+	
+	
 	@Autowired
 	private UserDetailsService userDetailsService;
 	
@@ -55,7 +62,8 @@ public class ConfigureSecurity extends WebSecurityConfigurerAdapter{
 	public AuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
 		provider.setUserDetailsService(userDetailsService);
-		provider.setPasswordEncoder(passwordEncoder());
+//		provider.setPasswordEncoder(passwordEncoder());
+		provider.setPasswordEncoder(bCryptPasswordEncoder());
 		return provider;
 	}
 	
