@@ -35,4 +35,9 @@ public class EmployeeService {
 		
 	}
 
+	public Employee findByUsername(String un) {
+		// TODO Auto-generated method stub
+		return employeeRepository.findByUsername(un);
+	}
+
 }
